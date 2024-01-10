@@ -4,20 +4,20 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from flask_session import Session
 
 app = Flask(__name__)
-# config = {
-#     'user': 'nikz',
-#     'password': 'Devznikz#09',
-#     'host': 'localhost',
-#     'port': '3306',
-#     'database': 'xenonstackdb'
-# }
 config = {
-    'user': 'root',
-    'password': '',
+    'user': 'nikz',
+    'password': 'Devznikz#09',
     'host': 'localhost',
     'port': '3306',
     'database': 'xenonstackdb'
 }
+# config = {
+#     'user': 'root',
+#     'password': '',
+#     'host': 'localhost',
+#     'port': '3306',
+#     'database': 'xenonstackdb'
+# }
 connection = mysql.connector.connect(**config)
 cursor = connection.cursor()
 
