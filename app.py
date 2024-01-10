@@ -20,8 +20,8 @@ def index():
 def contact():
     return render_template('contactus.html')
 
-@app.route('/login', methods=['GET', 'POST'])
-def contact():
+@app.route('/login', methods=['GET'])
+def login():
     return render_template('loginRegister.html')
 
 
