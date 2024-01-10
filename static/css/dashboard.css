@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* added to align content vertically */
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333; /* setting default text color */
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+    color: #777; /* light gray color */
+    max-width: 600px; /* setting a maximum width for better readability */
+    margin: 20px; /* adding margin for better spacing */
+    line-height: 1.6; /* adjust the line-height value as needed */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #172238;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    background-color: #172238;
+    color: white;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #0f1624;
+}

@@ -1,14 +1,19 @@
-
 import mysql.connector
 from flask import Flask, render_template, session, request, redirect, url_for
 
 from flask_session import Session
 
 app = Flask(__name__)
-
+# config = {
+#     'user': 'nikz',
+#     'password': 'Devznikz#09',
+#     'host': 'localhost',
+#     'port': '3306',
+#     'database': 'xenonstackdb'
+# }
 config = {
-    'user': 'nikz',
-    'password': 'Devznikz#09',
+    'user': 'root',
+    'password': '',
     'host': 'localhost',
     'port': '3306',
     'database': 'xenonstackdb'
@@ -26,6 +31,7 @@ def login():
     cursor.execute(query, (username, password))
     user = cursor.fetchone()
     if user:
+        session['loggedInEmail'] = username
         return redirect(url_for('dashboard'))
     else:
         return "Invalid email or password"
@@ -50,6 +56,7 @@ def signup():
         insert_query = "INSERT INTO userbase (email,password) VALUES (%s, %s)"
         cursor.execute(insert_query, (email, password))
         connection.commit()
+        session['loggedInEmail'] = email
         return redirect(url_for('dashboard'))
 
 
@@ -64,16 +71,15 @@ def contactSubmit():
     insert_query = "INSERT INTO contactus (Fname, Lname,Email, Phone, Message) VALUES (%s, %s, %s,%s,%s)"
     cursor.execute(insert_query, (fname, lname, email, phone, message))
     connection.commit()
-    return redirect(url_for('index'))
+    return f'Your message has been saved. We Will contact you soon.'
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    loggedinEmail = ""
     if session.get('loggedInEmail') is not None:
         print(session['loggedInEmail'])
         loggedinEmail = session['loggedInEmail']
-    return render_template('index.html', email=loggedinEmail)
+    return render_template('index.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
@@ -83,11 +89,22 @@ def contact():
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
+    if session.get('loggedInEmail') is None:
+        return f'You are not logged in. Please Login to continue.'
     return render_template('dashboard.html')
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    session.pop('loggedInEmail')
+    return redirect(url_for('/'))
 
 
 @app.route('/loginRegister', methods=['GET'])
 def loginRegister():
+    if session.get('loggedInEmail') is not None:
+        print(session['loggedInEmail'])
+        return redirect(url_for('dashboard'))
     return render_template('loginRegister.html')
 
 
