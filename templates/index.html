@@ -1,154 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>
-         Scrapius - Lets Automate the Scraping
-      </title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-   </head>
-   <body>
-      <div class="main-content">
-         <section class="header">
-            <h2 class="logo">Scrapius</h2>
-                <nav class="navigation">
-               <a href="#home">Home</a>
-               <a href="#contact">GitHub</a>
-               <a href="/contact">Contact Us</a>
-               <button class="btnLogin-popup">Login</button>
-            </nav>
-         </section>
-         <section>
-            <div class="text-box">
-               <h1>Introducing Automated Scraping!!</h1>
-               <p>Scrap the web, shine like a star!</p>
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devzstore || nikzdevz.in</title>
 
-             <div class="fillScreen">
-                 <div class="wrapper">
-               <span class="icon-close">
-                  <ion-icon name="close"></ion-icon>
-               </span>
-               <div class="form-box login">
-                  <h2>Login</h2>
-                  <form action="/userLogin" method="post">
-                     <div class="input-box">
-                        <span class="icon">
-                           <ion-icon name="mail"></ion-icon>
-                        </span>
-                        <input type="email" name="mail" required>
-                        <label>Email</label>
-                     </div>
-                     <div class="input-box">
-                        <span class="icon">
-                           <ion-icon name="lock-closed"></ion-icon>
-                        </span>
-                        <input type="password" name="password" required>
-                        <label>Password</label>
-                     </div>
-                     <div class="remember-forgot">
-                        <label><input type="checkbox">Remember me</label>
-                        <a href="#">Forgot Password?</a>
-                     </div>
-                     <button type="submit" class="btn">Login</button>
-                     <div class="login-register">
-                        <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
-                     </div>
-                  </form>
-               </div>
-               <div class="form-box register">
-                  <h2>Registration</h2>
-                  <form action="/userRegister" method="post">
-                     <div class="input-box">
-                        <span class="icon">
-                           <ion-icon name="person"></ion-icon>
-                        </span>
-                        <input type="text" name="username" required>
-                        <label>Username</label>
-                     </div>
-                     <div class="input-box">
-                        <span class="icon">
-                           <ion-icon></ion-icon>
-                        </span>
-                        <input type="email" name="mail" required>
-                        <label>Email</label>
-                     </div>
-                     <div class="input-box">
-                        <span class="icon">
-                           <ion-icon name="lock-closed"></ion-icon>
-                        </span>
-                        <input type="password" name="password" required>
-                        <label>Password</label>
-                     </div>
-                     <div class="remember-forgot">
-                        <label><input type="checkbox">I agree to the terms & conditions</label>
-                     </div>
-                     <button type="submit" class="btn">Register</button>
-                     <div class="login-register">
-                        <p>Already have an account? <a href="#" class="login-link">Login</a></p>
-                     </div>
-                  </form>
-               </div>
-            </div>
-             </div>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
-         </section>
-      </div>
-      <section class="home">
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-96x96.png">
+    <link rel="manifest" href="images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='images/logo-1-1.png') }}">-->
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="#" class="logo"><img src="{{ url_for('static', filename='images/logo-1-1.png') }}" class="main-logo" width="150" alt="Awesome Image"> </a>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <!-- <a href="#about">about</a> -->
+        <!-- <a href="#usage">tutorials</a> -->
+        <a href="#pricing">pricing</a>
+        <a href="developers.html">developers</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
     <div class="content">
-        <div class="left">
-            <h1>MORE<br>THAN<br>JUST<br><span class="red-text">SCRAPING</span></h1>
-        </div>
-        <div class="right">
-            <div id="lottie-container"></div>
+        <h3>Awesome Tool <br>
+            To Enable <br>
+            Api 31 In Your <br> App</h3>
+        <p>The simple and interactive app to enable api31, modify and <br> improve your app in a single click.</p>
 
+        <a href="https://devzstoreapp.nikzdevz.in/download.php" class="btn" target="_blank">Try Now</a>
+    </div>
+
+
+
+    <div class="swiper-container image-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{{ url_for('static', filename='images/images/app-screen-1-1.png') }}" alt=""></div>
+            <div class="swiper-slide"><img src="{{ url_for('static', filename='images/app-screen-1-2.png') }}" alt=""></div>
+            <div class="swiper-slide"><img src="{{ url_for('static', filename='images/app-screen-1-3.png') }}" alt=""></div>
+            <div class="swiper-slide"><img src="{{ url_for('static', filename='images/app-screen-1-4.png') }}" alt=""></div>
+            <div class="swiper-slide"><img src="{{ url_for('static', filename='images/app-screen-1-5.png') }}" alt=""></div>
         </div>
     </div>
+
 </section>
-{#      <section id="about" class="about">#}
-{#         <h1 id="devTitle">Developers</h1>#}
-{#         <div class="row">#}
-{#            <div class="about-col">#}
-{#               <img src="{{ url_for('static', filename='img/home1.png') }}">#}
-{#               <h3>Nikhil Kr. Gupta(nikzdevz)</h3>#}
-{#               <p>I took on a really cool project focused on automated scraping, diving into the worlds of both frontend and backend development. On the frontend side, I crafted a user-friendly interface using HTML, CSS, and JavaScript. At the same time, I got into Python and used Flask for the backend, making sure everything flowed smoothly for super-fast web apps. This hands-on work didn’t just improve my tech skills; it showed me how crucial it is to have the frontend and backend working together seamlessly for the best user experiences. It's what keeps me excited about creating innovative, tech-powered solutions.</p>#}
-{#            </div>#}
-{#            <div class="about-col">#}
-{#               <img src="{{ url_for('static', filename='img/home3.png') }}">#}
-{#               <h3>Shalini Yadav</h3>#}
-{#               <p>I wanted to level up my skills, so I tackled something new in this project. I mainly focused on backend development using Python and Flask. My key task was managing schema generation, which was super important for automating the scraping process. Getting into this really helped me grasp HTML, CSS, JSON, and XML better. It was a journey that not only improved my backend skills but also gave me a better handle on these crucial languages and formats needed for efficient scraping.</p>#}
-{#            </div>#}
-{#            <div class="about-col">#}
-{#               <img src="{{ url_for('static', filename='img/home.png') }}">#}
-{#               <h3>Sarishti Gupta</h3>#}
-{#               <p>I'm a dedicated front-end developer with a passion for turning ideas into captivating digital realities. My journey in web development has been a fusion of creativity and coding, where I specialize in transforming design concepts into interactive and user-focused websites. Proficient in HTML, CSS, and JavaScript, I leverage my expertise to build seamless, cross-browser experiences.</p>#}
-{#            </div>#}
-{#         </div>#}
-{#      </section>#}
 
-      <section id="githubSection">
-<h2>Open Source!!</h2>
-    <p>Our code is available at GitHub</p>
+<!-- home section ends -->
 
-    <div class="github-card">
-        <div class="inner-githubcard">
-            <img src="{{ url_for('static', filename='img/github.png') }}" alt="GitHub Logo">
-            <div class="project-info">
-                <h3>nikzdevz/Scrapius</h3>
-                <p><a href="https://github.com/nikzdevz/Scrapius" target="_blank">https://github.com/nikzdevz/Scrapius</a></p>
-            </div>
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading">app features</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-magic"></i> 
+            <h3>Easy, Simple and Fast Solution</h3>
+            <p>We provide the unique and simple solution to the user for editing and modifying there app.</p>
         </div>
-    </div>
-      </section>
-      {#        <script src="script.js"> </script>#}
-      <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+        <div class="box">
+            <i class="fas fa-globe"></i>
+            <h3>Unique and Custom Option</h3>
+            <p>We provides many options to provide full control over your app.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Secure Integration</h3>
+            <p>Secure environment is provided by us to protect your app and data from getting shared.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-file-code"></i>
+            
+            <h3>One Click API 31</h3>
+            <p>Enable API 31 in your app in one click, And feel free to publish yor app on play store.</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-cogs"></i>
+            <h3>Inject Any Resources</h3>
+            <p>Now we can inject any kind of resources like native libraries, XML layouts, many more...</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-headset"></i>
+            <h3>24 x 7 service</h3>
+            <p>You can ask your query through email or telegram. We'll solve your query as soon as possible.</p>
+        </div>
 
-   </body>
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+   
+    <h1 class="heading">about the app</h1>
+    <section class="cta-one">
+        
+        <div class="container">
+            <!-- <img src="images/cta-moc-1-1.png" class="cta-one__moc" alt="Awesome Image" /> -->
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="cta-one__content">
+                        <div class="block-title text-left">
+                            <h2 class="block-title__title">Take a control on <br> your mobile app</h2>
+                            <!-- /.block-title__title -->
+                        </div>
+                        <!-- /.block-title -->
+                        <p class="cta-one__text">Get control over your app by submitting request anytime, from anywhere.</p>
+                        <!-- /.cta-one__text -->
+                        <ul class="cta-one__list">
+                            <li class="cta-one__list-item"><i class="fa fa-check"></i> Simple interface and easy to control.</li>
+                            <!-- /.cta-one__list-item -->
+                            <li class="cta-one__list-item"><i class="fa fa-check"></i>Build signed aab or apk.</li>
+                            <!-- /.cta-one__list-item -->
+                            <li class="cta-one__list-item"><i class="fa fa-check"></i>No worry in uploading app to playstore.</li>
+                            <!-- /.cta-one__list-item -->
+                        </ul>
+                        <!-- /.cta-one__list -->
+<!--                        <a href="https://devzstoreapp.nikzdevz.in/download.php" target="_blank" class="btn">Download</a>-->
+                    </div>
+                    <!-- /.cta-one__content -->
+                </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+
+<!-- </div> -->
+
+</section>
+
+<!-- about section ends -->
+
+<!-- usage section starts  -->
+
+<section class="usage" id="usage">
+    
+            <h1 class="heading">app integration tutorials</h1>
+
+            <div class="video-one__content">
+                <img src="{{ url_for('static', filename='images/video-1-1.jpg') }}" alt="Awesome Image" />
+                <a href="https://www.youtube.com/watch?v=tDGt3tJAuI4" class="video-one__link video-popup" target="_blank"><i
+                        class="fa fa-play"></i></a>
+            </div>
+       
+
+</section>
+
+
+<section class="footer">
+
+    <div class="share">
+        <a href="https://www.youtube.com/channel/UCtu7oImgr7JB2WL_VrIJi4Q" class="fab fa-youtube" target="_blank"></a>
+        <a href="mailto:nikzdreamer2001@gmail.com" class="fa fa-envelope" target="_blank"></a>
+        <a href="https://www.instagram.com/itz_mr_nikhil/" class="fab fa-instagram" target="_blank"></a>
+        <a href="https://t.me/nikzdezv" class="fab fa-telegram" target="_blank"></a>
+    </div>
+
+    <h1 class="credit"> copyright &copy; <span> devzstore </span> . all rights reserved! | <a href="terms_and_conditions.html" class="credit" target="_blank">terms of use</a>  | <a href="privacy.html" class="credit" target="_blank">updated privacy policy</a>  </h1>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- script part  -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+
+var swiper = new Swiper(".image-slider", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: true,
+    },
+    loop:true,
+    autoplay: {
+          delay: 2000,
+          disableOnInteraction: false,
+    },
+});    
+
+let menu = document.querySelector('#menu-bar');
+let navbar = document.querySelector('.navbar');
+
+menu.addEventListener('click', () =>{
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('nav-toggle');
+});
+
+window.onscroll = () =>{
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('nav-toggle');
+}
+
+</script>
+
+<script src="js/jquery.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/theme.js"></script>
+
+
+</body>
 </html>

@@ -20,6 +20,10 @@ def index():
 def contact():
     return render_template('contactus.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def contact():
+    return render_template('loginRegister.html')
+
 
 if __name__ == "__main__":
     app.config["SESSION_PERMANENT"] = False
