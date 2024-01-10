@@ -7,8 +7,8 @@ from flask_session import Session
 app = Flask(__name__)
 
 config = {
-    'user': 'root',
-    'password': '',
+    'user': 'nikz',
+    'password': 'Devznikz#09',
     'host': 'localhost',
     'port': '3306',
     'database': 'xenonstackdb'
